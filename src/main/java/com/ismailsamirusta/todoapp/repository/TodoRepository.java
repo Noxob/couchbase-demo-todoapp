@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.ismailsamirusta.todoapp.model.Todo;
 
-public interface TodoRepository  extends CrudRepository<Todo, String> {
+public interface TodoRepository extends CrudRepository<Todo, String> {
     List<Todo> findByTitle(String title);
     List<Todo> findByTitleContaining(String title);
     List<Todo> findByDescriptionContaining(String description);

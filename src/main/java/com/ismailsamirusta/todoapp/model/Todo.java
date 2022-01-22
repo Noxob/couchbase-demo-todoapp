@@ -36,6 +36,10 @@ public class Todo {
 	@Field
 	private Date due;
 	
+	@Field
+	@NotNull
+	private AppUser user;
+	
 	public String getId() {
 		return id;
 	}
