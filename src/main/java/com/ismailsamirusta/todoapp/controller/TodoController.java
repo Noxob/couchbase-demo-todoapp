@@ -35,7 +35,7 @@ public class TodoController {
 	@PostMapping("/create/new")
 	public ResponseEntity<String> createNewTodo(@RequestBody Todo newTodo){
 		try {
-			todoService.createNew(newTodo);
+			todoService.save(newTodo);
 			return new ResponseEntity<String>("Created.", HttpStatus.CREATED);
 		}catch(Exception e) {
 			e.printStackTrace();

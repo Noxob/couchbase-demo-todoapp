@@ -1,5 +1,6 @@
 package com.ismailsamirusta.todoapp.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,12 @@ public class TodoServiceImpl implements TodoService{
 	private final String TODO_ID_PREFIX = "TODO:";
 	
 	@Override
-	public void createNew(Todo todo) {
-		todo.setUser(SecurityContextHolder.getContext().getAuthentication().getName());
-		todo.setId(TODO_ID_PREFIX + todo.getTitle().replace(" ", "_")+":"+todo.getCreated().getTime());
+	public void save(Todo todo) {
+		if(todo.getCreated()==null) {
+			todo.setUser(SecurityContextHolder.getContext().getAuthentication().getName());
+			todo.setCreated(new Date());
+			todo.setId(TODO_ID_PREFIX + todo.getTitle().replace(" ", "_")+":"+todo.getCreated().getTime());
+		}
 		todoRepository.save(todo);
 	}
 	
