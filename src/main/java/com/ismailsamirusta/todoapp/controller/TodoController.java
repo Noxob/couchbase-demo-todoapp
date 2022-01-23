@@ -9,22 +9,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ismailsamirusta.todoapp.model.Todo;
 import com.ismailsamirusta.todoapp.service.TodoService;
 
 @Controller
+@RequestMapping("todo")
 public class TodoController {
 
 	@Autowired
 	private TodoService todoService;
 	
-	@GetMapping("/todo/get/all")
+	@GetMapping("/get/all")
 	public ResponseEntity<List<Todo>> getAllTodos(){
-		return new ResponseEntity<List<Todo>>(todoService.getAllTodos(), HttpStatus.OK);
+		return new ResponseEntity<List<Todo>>(todoService.getMyTodos(), HttpStatus.OK);
 	}
 	
-	@PostMapping("/todo/create/new")
+	@PostMapping("/create/new")
 	public ResponseEntity<String> createNewTodo(@RequestBody Todo newTodo){
 		try {
 			todoService.createNew(newTodo);

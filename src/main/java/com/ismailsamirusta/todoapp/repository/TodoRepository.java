@@ -14,4 +14,5 @@ public interface TodoRepository extends CrudRepository<Todo, String> {
     List<Todo> findByComplete(boolean complete);
     List<Todo> findByDueLessThan(DateTime date);
     List<Todo> findByDueGreaterThan(DateTime date);
+    List<Todo> findByUser(String user);
 }

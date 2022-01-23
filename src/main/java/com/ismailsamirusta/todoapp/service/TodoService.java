@@ -8,5 +8,5 @@ public interface TodoService {
 	
 	public void createNew(Todo todo);
 	public List<Todo> getAllTodos();
-	
+	public List<Todo> getMyTodos();
 }

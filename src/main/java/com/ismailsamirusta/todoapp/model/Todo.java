@@ -12,7 +12,6 @@ import org.springframework.data.couchbase.core.mapping.Field;
 public class Todo {
 
 	@Id
-	@Field
 	private String id;
 	
 	@Field
@@ -38,7 +37,7 @@ public class Todo {
 	
 	@Field
 	@NotNull
-	private AppUser user;
+	private String user;
 	
 	public String getId() {
 		return id;
@@ -94,5 +93,13 @@ public class Todo {
 
 	public void setDue(Date due) {
 		this.due = due;
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	
+	public void setUser(String user) {
+		this.user = user;
 	}
 }
