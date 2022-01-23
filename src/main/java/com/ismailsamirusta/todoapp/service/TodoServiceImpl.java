@@ -34,4 +34,9 @@ public class TodoServiceImpl implements TodoService{
 		return todoRepository.findByUser(SecurityContextHolder.getContext().getAuthentication().getName());
 	}
 
+	@Override
+	public List<Todo> getTodosByComplete(boolean complete) {
+		return todoRepository.findByComplete(complete);
+	}
+
 }
