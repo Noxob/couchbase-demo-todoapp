@@ -24,7 +24,7 @@ public class TodoServiceImpl implements TodoService{
 		String id =TODO_ID_PREFIX + todo.getTitle().replace(" ", "_")+":"+user;
 		Todo tempTodo = todoRepository.findById(id).orElse(null);
 		
-		if(todo.getId()==null) {
+		if(todo.getId()==null || todo.getId().isEmpty()) {
 			if(tempTodo != null) {
 				throw new Exception("You already have a todo with the same name!");
 			}else {
