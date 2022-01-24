@@ -12,6 +12,7 @@ import org.springframework.data.couchbase.core.mapping.Field;
 public class Todo {
 
 	@Id
+	@Field
 	private String id;
 	
 	@Field

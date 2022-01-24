@@ -1,6 +1,8 @@
 package com.ismailsamirusta.todoapp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,14 +34,32 @@ public class TodoController {
 		return new ResponseEntity<List<Todo>>(todoService.getTodosByComplete(complete), HttpStatus.OK);
 	}
 	
-	@PostMapping("/create/new")
-	public ResponseEntity<String> createNewTodo(@RequestBody Todo newTodo){
+	@PostMapping("/save")
+	public ResponseEntity<Map<String, String>> saveTodo(@RequestBody Todo newTodo){
+		Map<String, String> returnMap = new HashMap<String,String>();
 		try {
 			todoService.save(newTodo);
-			return new ResponseEntity<String>("Created.", HttpStatus.CREATED);
+			returnMap.put("success", "true");
+			return new ResponseEntity<Map<String, String>>(returnMap, HttpStatus.OK);
 		}catch(Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			returnMap.put("error", e.getMessage());
+			returnMap.put("success", "false");
+			return new ResponseEntity<Map<String, String>>(returnMap, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping("/remove/{id}")
+	public ResponseEntity<Map<String, String>> removeTodo(@PathVariable String id){
+		Map<String, String> returnMap = new HashMap<String,String>();
+		try {
+			todoService.removeTodoById(id);
+			returnMap.put("success", "true");
+			return new ResponseEntity<Map<String, String>>(returnMap, HttpStatus.OK);
+		}catch(Exception e) {
+			returnMap.put("error", e.getMessage());
+			returnMap.put("success", "false");
+			return new ResponseEntity<Map<String, String>>(returnMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

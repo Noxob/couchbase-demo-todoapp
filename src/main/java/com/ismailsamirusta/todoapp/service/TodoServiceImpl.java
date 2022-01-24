@@ -19,12 +19,29 @@ public class TodoServiceImpl implements TodoService{
 	private final String TODO_ID_PREFIX = "TODO:";
 	
 	@Override
-	public void save(Todo todo) {
-		if(todo.getCreated()==null) {
-			todo.setUser(SecurityContextHolder.getContext().getAuthentication().getName());
-			todo.setCreated(new Date());
-			todo.setId(TODO_ID_PREFIX + todo.getTitle().replace(" ", "_")+":"+todo.getCreated().getTime());
+	public void save(Todo todo) throws Exception {
+		String user = SecurityContextHolder.getContext().getAuthentication().getName();
+		String id =TODO_ID_PREFIX + todo.getTitle().replace(" ", "_")+":"+user;
+		Todo tempTodo = todoRepository.findById(id).orElse(null);
+		
+		if(todo.getId()==null) {
+			if(tempTodo != null) {
+				throw new Exception("You already have a todo with the same name!");
+			}else {
+				todo.setId(id);
+			}
 		}
+		if(todo.getCreated()==null) {
+			todo.setCreated(new Date());
+		}else {
+			todo.setUpdated(new Date());
+		}
+		if(todo.getUser()==null) {
+			todo.setUser(user);
+		}else if (!todo.getUser().equals(user)) {
+			throw new Exception("You can only change your own todos!");
+		}
+		
 		todoRepository.save(todo);
 	}
 	
@@ -41,6 +58,12 @@ public class TodoServiceImpl implements TodoService{
 	@Override
 	public List<Todo> getTodosByComplete(boolean complete) {
 		return todoRepository.findByComplete(complete);
+	}
+
+	@Override
+	public boolean removeTodoById(String id) {
+		todoRepository.deleteById(id);
+		return true;
 	}
 
 }
