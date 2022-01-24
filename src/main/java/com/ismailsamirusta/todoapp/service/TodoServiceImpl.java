@@ -36,7 +36,7 @@ public class TodoServiceImpl implements TodoService{
 		}else {
 			todo.setUpdated(new Date());
 		}
-		if(todo.getUser()==null) {
+		if(todo.getUser()==null || todo.getUser().isEmpty()) {
 			todo.setUser(user);
 		}else if (!todo.getUser().equals(user)) {
 			throw new Exception("You can only change your own todos!");
