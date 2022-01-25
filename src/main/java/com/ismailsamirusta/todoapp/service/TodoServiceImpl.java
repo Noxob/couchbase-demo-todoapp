@@ -52,7 +52,7 @@ public class TodoServiceImpl implements TodoService{
 
 	@Override
 	public List<Todo> getMyTodos() {
-		return todoRepository.findByUser(SecurityContextHolder.getContext().getAuthentication().getName());
+		return todoRepository.findByUserOrderByDueAsc(SecurityContextHolder.getContext().getAuthentication().getName());
 	}
 
 	@Override
