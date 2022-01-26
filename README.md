@@ -22,9 +22,12 @@ In order to run the project as a docker container, execute the command below in 
 
 This will setup the frontend, the backend and couchbase server. (These three images can be found separately [here](https://hub.docker.com/u/noxob))
 
+**Swagger**
+
+Swagger endpoint is `http://localhost:8080/swagger-ui/` by default.
+
 **Containerize:**
 
 In order to containerize you need to run `createdockerimages.txt` line by line. This will create a container containing both couchbase server and our backend.
-
 
 **If you make any changes in `./couchbase-docker-image/configure-server.sh` you can run `./dos2unix.exe ./couchbase-docker-image/configure-server.sh` to prevent any formatting errors from occuring within the container.**
