@@ -4,7 +4,7 @@ In order to build the app, you need to run `mvn clean install`, this will create
 
 **Testing:**
 
-When you run `mvn clean install`, the tests will run automatically. You need a couchbase server to be able to run tests. In order to mock couchbase server you can use https://github.com/couchbase/CouchbaseMock, further explanation can be found in the project page.
+When you run `mvn clean install`, the tests will run automatically. You need a couchbase server to be able to run tests. In order to mock couchbase server you can use [CouchbaseMock Project](https://github.com/couchbase/CouchbaseMock), further explanation can be found in the project page.
 
 **Running the app:**
 
@@ -20,7 +20,7 @@ In order to run the project as a docker container, execute the command below in 
 
 >docker-compose up
 
-This will setup the frontend, the backend and couchbase server.
+This will setup the frontend, the backend and couchbase server. (These three images can be found separately [here](https://hub.docker.com/u/noxob))
 
 **Containerize:**
 
