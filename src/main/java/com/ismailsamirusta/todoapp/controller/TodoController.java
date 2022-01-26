@@ -29,11 +29,6 @@ public class TodoController {
 		return new ResponseEntity<List<Todo>>(todoService.getMyTodos(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/get/complete/{complete}")
-	public ResponseEntity<List<Todo>> getAllByCompleted(@PathVariable boolean complete){
-		return new ResponseEntity<List<Todo>>(todoService.getTodosByComplete(complete), HttpStatus.OK);
-	}
-	
 	@PostMapping("/save")
 	public ResponseEntity<Map<String, String>> saveTodo(@RequestBody Todo newTodo){
 		Map<String, String> returnMap = new HashMap<String,String>();
