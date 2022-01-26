@@ -1,0 +1,25 @@
+docker build -t todo-app ./
+docker build -t couchbase-todo-app ./docker-couchbase
+
+docker build -t couchbase-dev .
+
+docker-compose run -d --service-ports --name couchbase couchbase
+docker-compose run -d --service-ports --name spring-boot spring-boot
+
+docker-compose run -d -p 8091-8094:8091-8094 -p 11210:11210 --name couchbase couchbase
+docker-compose run -d -p 8080:8080 --name spring-boot spring-boot
+
+ -p 8091-8094:8091-8094 -p 11210:11210
+
+while [ "$(curl -Isw '%{http_code}' -o /dev/null http://localhost:8091/ui/index.html#/)" != 200 ]
+do
+	sleep 5
+done
+
+
+
+        networks:
+            - local
+networks:
+    local:
+        driver: bridge
