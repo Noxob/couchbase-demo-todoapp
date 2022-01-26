@@ -28,3 +28,12 @@ services:
             - COUCHBASE_BUCKET=default
             - COUCHBASE_BUCKET_PASSWORD=
         restart: always
+    frontend:
+        image: noxob/demo-todoapp-ui
+        ports:
+            - 80:80
+        environment:
+            - COUCHBASE_HOST=couchbase
+            - COUCHBASE_BUCKET=default
+            - COUCHBASE_BUCKET_PASSWORD=
+        restart: always
