@@ -26,6 +26,10 @@ This will setup the frontend, the backend and couchbase server. (These three ima
 
 Swagger endpoint is `http://localhost:8080/swagger-ui/` by default.
 
+**Frontend:**
+
+Frontend repository can be found [here](https://github.com/Noxob/couchbase-demo-todoapp-ui).
+
 **Containerize:**
 
 In order to containerize you need to run `createdockerimages.txt` line by line. This will create a container containing both couchbase server and our backend.
