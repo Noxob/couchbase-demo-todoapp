@@ -20,6 +20,8 @@ In order to run the project as a docker container, execute the command below in 
 
 >docker-compose up
 
+This will setup frontend, backand and couchbase server.
+
 **Containerize:**
 
 In order to containerize you need to run `createdockerimages.txt` line by line. This will create a container containing both couchbase server and our backend.
