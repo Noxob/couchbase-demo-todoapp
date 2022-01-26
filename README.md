@@ -22,7 +22,7 @@ In order to run the project as a docker container, execute the command below in 
 
 This will setup the frontend, the backend and couchbase server. (These three images can be found separately [here](https://hub.docker.com/u/noxob))
 
-**Swagger**
+**Swagger:**
 
 Swagger endpoint is `http://localhost:8080/swagger-ui/` by default.
 
