@@ -14,6 +14,12 @@ To be able to run the app, you need a couchbase server. You can use a docker con
 
 After that you can start the Spring Boot application which was created in the "target" directory (by running `mvn clean install`) via `java -jar <JAR_FILE_NAME>` command.
 
+**Run as Docker Container:**
+
+In order to run the project as a docker container, execute the command below in the root directory of the project:
+
+>docker-compose up
+
 **Containerize:**
 
 In order to containerize you need to run `createdockerimages.txt` line by line. This will create a container containing both couchbase server and our backend.
