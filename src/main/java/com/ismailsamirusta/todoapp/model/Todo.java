@@ -40,6 +40,15 @@ public class Todo {
 	@NotNull
 	private String user;
 	
+	public Todo() {}
+	
+	public Todo(String title, String description, boolean complete,Date due) {
+		this.title = title;
+		this.description = description;
+		this.complete = complete;
+		this.due = due;
+	}
+
 	public String getId() {
 		return id;
 	}
