@@ -17,3 +17,6 @@ After that you can start the Spring Boot application which was created in the "t
 **Containerize:**
 
 In order to containerize you need to run `createdockerimages.txt` line by line. This will create a container containing both couchbase server and our backend.
+
+
+**If you make any changes in `./couchbase-docker-image/configure-server.sh` you can run `./dos2unix.exe ./couchbase-docker-image/configure-server.sh` to prevent any formatting errors from occuring within the container.**
