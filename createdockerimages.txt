@@ -1,0 +1,5 @@
+docker build -t todo-app .
+docker build -t couchbase-todo-app ./couchbase-docker-image
+
+docker-compose run -d --service-ports --name couchbase couchbase
+docker-compose run -d --service-ports --name todo-app spring-boot
