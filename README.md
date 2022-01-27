@@ -1,5 +1,7 @@
 # CouchbaseDemoTodoApp
 
+This is the Spring Boot backend for a fullstack web application. Application uses Couchbase as its data source. The frontend project is located [here](https://github.com/Noxob/couchbase-demo-todoapp-ui). Project uses Spring Security for its security architecture and implements JWT authentication. API endpoints are documented via Swagger.
+
 ## Building:
 
 In order to build the app, you need to run `mvn clean install`, this will create a JAR file in the "target" directory.
