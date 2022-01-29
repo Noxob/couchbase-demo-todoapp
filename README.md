@@ -1,4 +1,4 @@
-# Couchbase Todo App
+# Couchbase To-Do App
 
 This is the Spring Boot backend for a fullstack web application. Application uses Couchbase as its data source. The frontend project is located [here](https://github.com/Noxob/couchbase-demo-todoapp-ui). Project uses Spring Security for its security architecture and implements JWT authentication. API endpoints are documented via Swagger.
 
